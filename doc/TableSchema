@@ -1,0 +1,39 @@
+### H2
+create table security(
+  security_id bigint auto_increment,
+  security_name varchar(50),
+  product_id varchar(50),
+  security_create_datetime datetime,
+  foreign key (product_id) references product(product_id),
+  PRIMARY KEY (security_id)
+);
+create table product(
+  product_id bigint auto_increment,
+  product_name varchar(50),
+  product_use_yn boolean,
+  product_create_datetime datetime,
+  PRIMARY KEY (product_id)
+);
+
+create table contract(
+  contract_id varchar(50),
+  product_number varchar(50),
+  subscription_security varchar(50),
+  contract_period smallint,
+  insurance_start_date data,
+  insurance_end_date data,
+  total_insurance_fee bigint,
+  contract_status boolean,
+  contract_create_datetime datetime
+);
+
+create table contract_security(
+  contract_security_id varchar(50),
+  security_id varchar(50)
+)
+
+insert into product values ('1', '여행자보험', true);
+insert into security values ('1', '상해치료비', '1');
+insert into security values ('2', '항공기 지연도착시 보상금', '1');
+
+### postgres
